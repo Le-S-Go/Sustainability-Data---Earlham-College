@@ -6,7 +6,9 @@ This repository contains Python scripts to automate the processing of Earlham Co
 3. Go to the command line of an environment with Python3 installed and call the script with the following parameters
 
 -m : the month you are updating
+
 -f : the file path to the folder containing all utility bills for this month
+
 -e : the file path to a blank copy of the master spreadsheet
 
 For example, if you wanted to update the electricity data for January and stored the bills in a folder titled "GasBills_January", you would call

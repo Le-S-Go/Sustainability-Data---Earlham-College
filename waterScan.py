@@ -217,7 +217,7 @@ def update_excel(account_dict, meter_dict, blank_sheet, month):
         else:
             print(f"Warning: Meter {meter} not found in spreadsheet.")
     # Save updated workbook
-    wb.save(blank_sheet)
+    wb.save("UpdatedOutput.xlsx")
     print(f"Spreadsheet updated successfully for {month}.")      
 
 if __name__ == "__main__":

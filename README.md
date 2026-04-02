@@ -7,7 +7,7 @@ This repository contains Python scripts to automate the processing of Earlham Co
 
 -m : the month you are updating
 
--f : the file path to the folder containing all utility bills for this month
+-f : the file path to the folder containing all bills for this utility for this month
 
 -e : the file path to a blank copy of the master spreadsheet
 

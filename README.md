@@ -11,8 +11,8 @@ This repository contains Python scripts to automate the processing of Earlham Co
 
 -e : the file path to a blank copy of the master spreadsheet
 
-For example, if you wanted to update the electricity data for January and stored the bills in a folder titled "GasBills_January", you would call
+For example, if you wanted to update the electricity data for January and stored the bills in a folder titled "ElectricityBills_January", you would call
 ```
-$ python3 electricityScan.py -m 'Jan.' -f 'GasBills_January' -e 'Blank Sheet.xlsx'
+$ python3 electricityScan.py -m 'Jan.' -f 'ElectricityBills_January' -e 'Blank Sheet.xlsx'
 ```
 This will create a new, updated spreadsheet that you can then copy the relevant columns of information from into the master spreadsheet. 

@@ -73,13 +73,21 @@ def update_excel(workbook, new_values, month):
     #specific_month = new_values["Month"][1]
     specific_month = month
     sheet = workbook["Electricity"]
+    index_amount = None
+    index_usage = None
 
     for count, cell in enumerate(sheet[4]):
         if cell.value is not None:
-            value = str(cell.value.split(" ")[0])
+            value = str(cell.value).split(" ")[0]
             if value == specific_month:
+                if count == 0:
+                    raise ValueError(f"Month '{specific_month}' has no preceding amount column")
                 index_amount = count - 1
-                index_usage = count 
+                index_usage = count
+                break
+
+    if index_amount is None or index_usage is None:
+        raise ValueError(f"Month '{specific_month}' was not found in row 4 of the Electricity sheet")
     
     for i, j in new_values.iterrows():
         for row in sheet.iter_rows(min_row=4):
@@ -88,7 +96,7 @@ def update_excel(workbook, new_values, month):
                 row[index_amount].value = j.iloc[0]
                 row[index_usage].value = j.iloc[3]
 
-    workbook.save('2025-26 Utility Billing.xlsx')
+    workbook.save('2025-26 Electricity Billing.xlsx')
 
         
 
@@ -98,7 +106,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser("Parse info in pdf files")
     parser.add_argument("-f", help="folder name") 
     parser.add_argument("-e", help='existing excel file')
-    parser.add_argument("-m", help="month") 
+    parser.add_argument("-m", help="month", required=True) 
     args = parser.parse_args()
 
     files = os.listdir(args.f)
